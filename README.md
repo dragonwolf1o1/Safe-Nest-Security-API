@@ -24,7 +24,6 @@ and uses Gemini AI to determine threat levels (Low, Medium, High) — ensuring s
 - ✅ Real-time smart device alerts via REST API
 - 🧠 Risk classification using Gemini Pro
 - 🔒 Fully secured input validation & error handling
-- 📦 Professional folder structure and tested API
 - 🌍 Designed for mobile, speaker, and TV integration (breadth ✅)
 - 🧪 `pytest` included with logs
 
