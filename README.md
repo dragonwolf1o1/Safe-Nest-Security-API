@@ -1,14 +1,22 @@
 # 🛡️ SafeNest Security API
 
-SafeNest is an AI-powered smart home security system that integrates with Google Home devices. It listens for sensor alerts like motion, door breach, or glass break, and uses Gemini AI to determine threat levels (Low, Medium, High) — ensuring smarter, faster responses.
+SafeNest is an AI-powered smart home security system that integrates with Google Home devices.
+
+It listens for sensor alerts like motion, door breach, or glass break,
+
+and uses Gemini AI to determine threat levels (Low, Medium, High) — ensuring smarter, faster responses.
 
 ---
 
-## 🔗 Live Demo
-
-- 📺 [Demo Video](docs/SafeNest_Demo.mp4)
-- 🌐 API Endpoint: `http://localhost:8000/api/v1/alerts/send-alert`
-
+## 🧰 Tech Stack
+```
+-> Language:    Python 3.10
+-> Framework:   FastAPI
+-> AI: Gemini   Pro API (via Google MakerSuite)
+-> Development: Render / Google Cloud Run
+-> Testing:     Pytest
+-> Docs:        Swagger UI (OpenAPI)
+```
 ---
 
 ## 🚀 Features
@@ -23,6 +31,7 @@ SafeNest is an AI-powered smart home security system that integrates with Google
 ---
 
 ## 📦 Folder Structure
+```
 SafeNest-Security-API/
 │
 ├── app/
@@ -55,7 +64,7 @@ SafeNest-Security-API/
 ├── requirements.txt           # Python dependencies
 ├── README.md                  # Full project documentation
 └── README.pdf                 # Same as above, for submission
-
+```
 
 ---
 
@@ -67,3 +76,48 @@ cd SafeNest-Security-API
 pip install -r requirements.txt
 cp .env.example .env  # Add your Gemini API key
 uvicorn app.main:app --reload
+```
+
+---
+
+## 🚀 How to Use the API (Step-by-Step)
+
+### Step 1: Send an Alert
+#### &ensp;&ensp; POST /api/v1/alerts/send-alert
+```
+{
+  "device_id": "sensor_frontdoor_01",
+  "location": "Main Door",
+  "event": "motion detected",
+  "timestamp": "2025-06-08T19:30:00Z"
+}
+```
+
+#### &ensp;&ensp; 🔁 Response:
+
+```
+{
+  "device_id": "sensor_frontdoor_01",
+  "location": "Main Door",
+  "event": "motion detected",
+  "threat_level": "Medium",
+  "status": "Alert processed"
+}
+```
+
+### Step 2: Test the API
+```
+pytest tests/
+```
+
+### Step 3: View Logs (Optional)
+```
+cat test_logs.txt
+```
+---
+
+## 🏆 Challenge
+
+**This project was developed as a submission for the:**
+## Google Home API Developer Challenge 2025
+```"Built for the Safety & Security theme, designed to protect homes using AI and cloud technology."```
