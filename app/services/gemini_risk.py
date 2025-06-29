@@ -9,10 +9,10 @@ load_dotenv(dotenv_path=env_path)
 
 
 api_key = os.getenv("GEMINI_API_KEY")
-print("✅ Loaded API key:", api_key)
+print("Loaded API key:", api_key)
 
 if not api_key or "ENTER YOUR GEMINI" in api_key:
-    raise ValueError("❌ GEMINI_API_KEY not found or invalid. Please fix your .env file.")
+    raise ValueError("GEMINI_API_KEY not found or invalid. Please fix your .env file.")
 
 
 genai.configure(api_key=api_key)
@@ -40,9 +40,9 @@ def classify_threat(event_text: str) -> str:
         if result in ["Low", "Medium", "High"]:
             return result
         else:
-            print("⚠️ Unexpected response format:", result)
+            print("Unexpected response format:", result)
             return "Medium"  # fallback
 
     except Exception as e:
-        print("❌ Gemini error:", str(e))
+        print("Gemini error:", str(e))
         return "Medium"
