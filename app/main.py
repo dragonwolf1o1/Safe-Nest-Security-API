@@ -22,16 +22,15 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Allow CORS (for mobile/web integration)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific domain(s)
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Include all route modules
+
 app.include_router(device_alerts.router, prefix="/api/v1/alerts", tags=["Alerts"])
 
 @app.get("/")
