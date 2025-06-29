@@ -1,6 +1,20 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import device_alerts
+from app.services.gemini_risk import classify_threat
+from dotenv import load_dotenv
+import os
+load_dotenv()
+print("Your API key is:", os.getenv("GEMINI_API_KEY"))
+import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+env_path = Path(__file__).resolve().parents[1] / ".env"
+load_dotenv(dotenv_path=env_path)
+print("Check key:", os.getenv("GEMINI_API_KEY"))
+
+
 
 app = FastAPI(
     title="SafeNest Security API",

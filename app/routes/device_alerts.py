@@ -16,7 +16,7 @@ async def send_alert(alert: AlertRequest):
     try:
         logger.info(f"Received alert from device: {alert.device_id} - Event: {alert.event}")
 
-        threat_level = await classify_threat(alert.event)
+        threat_level = classify_threat(alert.event) 
 
         response = {
             "device_id": alert.device_id,
